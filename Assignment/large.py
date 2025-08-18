@@ -10,3 +10,12 @@ elif n2 > n1 and n2 > n3:
     print(f"{n2} is largest")
 else:
     print(f"{n3} is largest")
+
+
+#######################using list
+
+list = [11, 21, 1]
+a = list.sort()
+print(f"Largest number from the list=", list[-1])
+
+
