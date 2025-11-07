@@ -1,30 +1,29 @@
-from typing import List
+class Solution:
+    def backtrack(self, subset, index, total):
+        if total == K:
+            return True
+        if index >= N:
+            return False
+
+        subset.append(arr[index])
+        pick = self.backtrack(subset, index + 1, total + arr[index])
+        if pick == True:
+            return True
+
+        e = subset.pop()
+        return self.backtrack(subset, index + 1, total)
+
+    def checkSubsequenceSum(self, N, arr, K):
+        return self.backtrack([], 0, 0)
 
 
-def backtrack(subset: List[int], index: int, total: int):
-    if total == k:
-        result.append(subset.copy())
-        return True
+# Example Input
+N = 5
+arr = [1, 2, 3, 4, 5]
+K = 9
 
-    if index >= len(nums):
-        return False
+# Create object and call function
+obj = Solution()
+result = obj.checkSubsequenceSum(N, arr, K)
 
-    subset.append(nums[index])
-    Sum = total + nums[index]
-
-    pick = backtrack(subset, index + 1, Sum)
-    if pick:
-        return True
-
-    e = subset.pop()
-    Sum -= e
-
-    return backtrack(subset, index + 1, Sum)
-
-
-result = []
-nums = [1, 2, 3, 4, 3, 2, 1, 1, 1, 1]
-k = 3
-
-backtrack([], 0, 0)
 print(result)
