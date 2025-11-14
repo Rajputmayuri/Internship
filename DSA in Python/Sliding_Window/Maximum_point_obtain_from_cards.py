@@ -1,0 +1,26 @@
+from typing import List
+
+
+class Solution:
+    def maxScore(self, cardPoints: List[int], k: int) -> int:
+        if k == len(cardPoints):
+            return sum(cardPoints)
+
+        max_sum = 0
+        left_sum = 0
+        right_sum = 0
+        n = len(cardPoints)
+        for i in range(k):
+            left_sum += cardPoints[i]
+        max_sum = left_sum
+        right_index = n - 1
+        for i in range(k - 1, -1, -1):
+            left_sum -= cardPoints[i]
+            right_sum += cardPoints[right_index]
+            right_index -= 1
+            max_sum = max(max_sum, left_sum + right_sum)
+        return max_sum
+
+
+sol = Solution()
+print(sol.maxScore([1, 2, 3, 4, 5, 6, 1], 3))
