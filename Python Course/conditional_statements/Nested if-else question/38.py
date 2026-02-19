@@ -2,9 +2,9 @@
 the largest one using nested if-else statements. Make sure all 3 numbers
 entered by user are dierent."""
 
-n1 = float(input("Enter first number ="))
-n2= float(input("Enter second number ="))
-n3= float (input("Enter third number="))
+a = float(input("Enter first number ="))
+b = float(input("Enter second number ="))
+c = float (input("Enter third number="))
 
 if a==b or b==c or a==c:
     print("Error : All three numbers must be different.")
@@ -20,3 +20,4 @@ else:
         else:
             largest=c
     print(f"The largest number is :{largest}")
+
